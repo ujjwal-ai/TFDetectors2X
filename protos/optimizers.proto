@@ -1,0 +1,93 @@
+syntax = "proto2";
+
+import "protos/learning_rates.proto";
+//This proto file defines the proto messages for different optimizers
+// defined in TensorFlow version 2.2.
+
+message Optimizer {
+    oneof Opt {
+        Adadelta adadelta = 1;
+        Adagrad adagrad = 2;
+        Adam adam = 3;
+        Adamax adamax = 4;
+        Nadam nadam = 5;
+        RMSprop rmsprop = 6;
+        SGD sgd = 7;
+    }
+}
+
+//Adadelta optimizer
+//As specified in https://www.tensorflow.org/api_docs/python/tf/keras/optimizers/Adadelta
+message Adadelta {
+    required LearningRateDecay learning_rate_schedule = 1;
+    optional float rho = 2 [default = 0.95];
+    optional float epsilon = 3 [default = 1E-7];
+}
+
+//Adagrad optimizer
+//As specified in https://www.tensorflow.org/api_docs/python/tf/keras/optimizers/Adagrad
+message Adagrad {
+    required LearningRateDecay learning_rate_schedule = 1;
+    optional float initial_accumulator_value = 2 [default = 0.1];
+    optional float epsilon = 3 [default = 1E-7];
+}
+
+//Adam optimizer
+//As specified in https://www.tensorflow.org/api_docs/python/tf/keras/optimizers/Adam
+message Adam {
+    required LearningRateDecay learning_rate_schedule = 1;
+    optional float beta_1 = 2 [default = 0.9];
+    optional float beta_2 = 3 [default = 0.999];
+    optional float epsilon = 4 [default = 1E-7];
+    optional bool amsgrad = 5 [default = false];
+}
+
+//Adamax optimizer
+//As specified in https://www.tensorflow.org/api_docs/python/tf/keras/optimizers/Adamax
+message Adamax {
+    required LearningRateDecay learning_rate_schedule = 1;
+    optional float beta_1 = 2 [default = 0.9];
+    optional float beta_2 = 3 [default = 0.999];
+    optional float epsilon = 4 [default = 1E-7];
+}
+
+//Ftrl optimizer
+//As specified in https://www.tensorflow.org/api_docs/python/tf/keras/optimizers/Ftrl
+message Ftrl {
+    required LearningRateDecay learning_rate_schedule = 1;
+    optional float learning_rate_power = 2 [default = -0.5];
+    optional float initial_accumulator_value = 3 [default = 0.1];
+    optional float l1_regularization_strength = 4 [default = 0.0];
+    optional float l2_regularization_strength = 5 [default = 0.0];
+    optional float l2_shrinkage_regularization_strength = 6 [default = 0.0];
+
+}
+
+//Nadam Optimizer
+//As specified in https://www.tensorflow.org/api_docs/python/tf/keras/optimizers/Nadam
+message Nadam {
+    required LearningRateDecay learning_rate_schedule = 1;
+    optional float beta_1 = 2 [default = 0.9];
+    optional float beta_2 = 3 [default = 0.999];
+    optional float epsilon = 4 [default = 1E-7];
+}
+
+//RMSprop Optimizer
+//As specified in https://www.tensorflow.org/api_docs/python/tf/keras/optimizers/RMSprop
+message RMSprop {
+    required LearningRateDecay learning_rate_schedule = 1;
+    optional float rho = 2 [default = 0.9];
+    optional float momentum = 3 [default = 0.0];
+    optional float epsilon = 4 [default = 1E-7];
+    optional bool centered = 5 [default = false];
+
+}
+
+//SGD Optimizer
+//As specified in https://www.tensorflow.org/api_docs/python/tf/keras/optimizers/SGD
+message SGD {
+    required LearningRateDecay learning_rate_schedule = 1;
+    optional float momentum = 2 [default = 0.0];
+    optional bool nesterov = 3 [default = false];
+
+}

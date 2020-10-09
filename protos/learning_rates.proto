@@ -1,0 +1,53 @@
+syntax = "proto2";
+
+// This proro file defines proto messages for different
+// learning rate schedules defined for TensorFlow version 2.2
+message LearningRateDecay {
+    oneof LearningRateSchedule {
+        ExponentialDecay exponential_decay = 1;
+        InverseTimeDecay inversetime_decay = 2;
+        PiecewiseConstantDecay piecewiseconstant_decay = 3;
+        PolynomialDecay polynomial_decay = 4;
+        ConstantRate constant_rate = 5;
+    }
+}
+
+//Exponential Decay for Learning Rate
+// As specified in https://www.tensorflow.org/api_docs/python/tf/keras/optimizers/schedules/ExponentialDecay
+message ExponentialDecay {
+    required float initial_learning_rate = 1;
+    required int64 decay_steps = 2;
+    required float decay_rate = 3;
+    optional bool staircase = 4 [default = false];
+}
+
+//InverseTime Decay for Learning Rate
+// As specified in https://www.tensorflow.org/api_docs/python/tf/keras/optimizers/schedules/InverseTimeDecay
+message InverseTimeDecay {
+    required float initial_learning_rate = 1;
+    required int64 decay_steps = 2;
+    required float decay_rate = 3;
+    optional bool staircase = 4 [default = false];
+}
+
+//PiecewiseConstant Decay for Learning Rate
+// As specified in https://www.tensorflow.org/api_docs/python/tf/keras/optimizers/schedules/PiecewiseConstantDecay
+message PiecewiseConstantDecay {
+    repeated int64 boundaries = 1;
+    repeated float values = 2;
+}
+
+//Polynomial Decay for Learning Rate
+//As specified in https://www.tensorflow.org/api_docs/python/tf/keras/optimizers/schedules/PolynomialDecay
+message PolynomialDecay {
+    required float initial_learning_rate = 1;
+    required int64 decay_steps = 2;
+    optional float end_learning_rate = 3 [default = 0.0001];
+    optional float power = 4 [default = 1.0];
+    optional bool cycle = 5 [default = false];
+}
+
+//When you need constant learning rate
+message ConstantRate {
+    required float learning_rate = 1;
+}

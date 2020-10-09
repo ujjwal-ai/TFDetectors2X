@@ -1,0 +1,7 @@
+syntax = "proto2";
+
+message BackBone {
+    required string name = 1;
+    optional bool use_pretrained = 2 [default = false];
+    optional string pretrained_path = 3 [default = '~/pretrained_backbones'];
+}

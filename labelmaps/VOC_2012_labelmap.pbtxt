@@ -1,0 +1,100 @@
+item {
+  name: "sheep"
+  display_name: "sheep"
+  id: 1
+}
+item {
+  name: "motorbike"
+  display_name: "motorbike"
+  id: 2
+}
+item {
+  name: "pottedplant"
+  display_name: "pottedplant"
+  id: 3
+}
+item {
+  name: "cow"
+  display_name: "cow"
+  id: 4
+}
+item {
+  name: "bicycle"
+  display_name: "bicycle"
+  id: 5
+}
+item {
+  name: "person"
+  display_name: "person"
+  id: 6
+}
+item {
+  name: "bus"
+  display_name: "bus"
+  id: 7
+}
+item {
+  name: "car"
+  display_name: "car"
+  id: 8
+}
+item {
+  name: "bird"
+  display_name: "bird"
+  id: 9
+}
+item {
+  name: "tvmonitor"
+  display_name: "tvmonitor"
+  id: 10
+}
+item {
+  name: "train"
+  display_name: "train"
+  id: 11
+}
+item {
+  name: "cat"
+  display_name: "cat"
+  id: 12
+}
+item {
+  name: "boat"
+  display_name: "boat"
+  id: 13
+}
+item {
+  name: "sofa"
+  display_name: "sofa"
+  id: 14
+}
+item {
+  name: "chair"
+  display_name: "chair"
+  id: 15
+}
+item {
+  name: "bottle"
+  display_name: "bottle"
+  id: 16
+}
+item {
+  name: "aeroplane"
+  display_name: "aeroplane"
+  id: 17
+}
+item {
+  name: "horse"
+  display_name: "horse"
+  id: 18
+}
+item {
+  name: "diningtable"
+  display_name: "diningtable"
+  id: 19
+}
+item {
+  name: "dog"
+  display_name: "dog"
+  id: 20
+}
